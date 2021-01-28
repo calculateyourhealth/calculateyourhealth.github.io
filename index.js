@@ -1,21 +1,35 @@
 var myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
+var inputWeight = document.getElementById("yourWeight");
+var tooltipInputWeight = new bootstrap.Tooltip(inputWeight, {trigger:"manual"});
+tooltipInputWeight.hide();
+
+var inputHigh = document.getElementById("yourHigh");
+var tooltipInputHigh = new bootstrap.Tooltip(inputHigh, {trigger:"manual"});
+tooltipInputHigh.hide();
+
+var inputSleep = document.getElementById("hourSleep");
+var tooltipInputSleep = new bootstrap.Tooltip(inputSleep, {trigger:"manual"});
+tooltipInputSleep.hide();
+
+var inputNumberStep = document.getElementById("numberStep");
+var tooltipInputNumberStep = new bootstrap.Tooltip(inputNumberStep, {trigger:"manual"});
+tooltipInputNumberStep.hide();
+var inputTimeWalking = document.getElementById("timeWalking");
 
 function clickCalculate() {
-    var inputWeight = document.getElementById("yourWeight");
     // BMI percents
     var yourWeight = inputWeight.value;
     if (yourWeight == "") {
         inputWeight.focus();
-        alert(inputWeight.getAttribute("title"));
+        tooltipInputWeight.show();
         return false;
     }
     yourWeight = Number(yourWeight);
 
-    var inputHigh = document.getElementById("yourHigh");
     var yourHigh = inputHigh.value;
     if (yourHigh == "") {
         inputHigh.focus();
-        alert(inputHigh.getAttribute("title"));
+        tooltipInputHigh.show();
         return false;
     }
     yourHigh = Number(yourHigh);
@@ -40,11 +54,10 @@ function clickCalculate() {
     }
 
     // Hour Sleep percents
-    var inputSleep = document.getElementById("hourSleep");
     var hourSleep = inputSleep.value;
     if (hourSleep == "") {
         inputSleep.focus();
-        alert(inputSleep.getAttribute("title"));
+        tooltipInputSleep.show();
         return false;
     }
     hourSleep = Number(hourSleep);
@@ -64,14 +77,12 @@ function clickCalculate() {
     }
 
     // Steps walking every day
-    var inputNumberStep = document.getElementById("numberStep");
-    var inputTimeWalking = document.getElementById("timeWalking");
     var numberStep = inputNumberStep.value;
     var timeWalking = inputTimeWalking.value;
 
     if (numberStep == "" && timeWalking == "") {
         inputNumberStep.focus();
-        alert(inputNumberStep.getAttribute("title"));
+        tooltipInputNumberStep.show()
         return false;
     }
 
@@ -163,4 +174,17 @@ function clickCalculate() {
 
     myModal.show();
     return true;
+}
+
+function hideTooltipInputWeight() {
+    tooltipInputWeight.hide();
+}
+function hideTooltipInputHigh() {
+    tooltipInputHigh.hide();
+}
+function hideTooltipInputSleep() {
+    tooltipInputSleep.hide();
+}
+function hideTooltipInputNumberStep() {
+    tooltipInputNumberStep.hide();
 }
