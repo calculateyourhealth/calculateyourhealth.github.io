@@ -1,3 +1,5 @@
+var myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
+
 var inputWeight = document.getElementById("yourWeight");
 inputWeight.focus();
 var tooltipInputWeight = new bootstrap.Tooltip(inputWeight, {trigger:"manual"});
